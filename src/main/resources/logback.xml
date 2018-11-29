@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+    <!-- This little enterprise application -->
+    <logger name="uk.co.xenonique.client.acme" level="debug" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+
+    <logger name="org.hibernate" level="info" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <logger name="org.springframework.security" level="debug" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="org.springframework.http" level="debug" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="org.springframework.remoting" level="debug" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="org.springframework.web" level="debug" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <!-- Suppress reject bean name - https://stackoverflow.com/questions/24075976/configuring-logback-to-suppress-logging-from-all-classes-inside-a-package -->
+    <logger name="org.springframework.web.servlet.handler" level="info" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <logger name="org.keycloak" level="debug" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+</configuration>
+
